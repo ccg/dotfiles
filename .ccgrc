@@ -89,6 +89,16 @@ then
     export TERM="xterm-color"
 fi
 
+# Change the window title of X terminals
+case $TERM in
+    xterm*|rxvt|Eterm|eterm)
+        PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
+        ;;
+    screen)
+        PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"'
+        ;;
+esac
+
 # Stolen from Gentoo:
 PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] "
 
@@ -114,7 +124,7 @@ if [ "$(uname -s)" == "Darwin" ]; then
     alias ls='ls -AFGq'
     append_path PYTHONPATH ~/Library/Python
     prepend_path PATH /opt/ibmcmp/xlf/8.1/bin
-    # Is it 1978 in Cupertino?
+    # Fix Backspace/Delete confusion:
     stty erase ^?
     # XTerm's $MANPATH gets messed up, and I can't find where it's happening.
     # Screw it. Just reset the whole thing, cuz the default works.

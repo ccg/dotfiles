@@ -6,10 +6,6 @@
 
 # append_path() and prepend_path() adapted from Fink's init.sh
 
-# (If the shell supported a real list data structure instead
-# of these stupid colon-delimited strings, none of this would be
-# necessary. I wonder if there's a Python-based shell out there...)
-
 # add to end of path
 append_path()
 {
@@ -24,7 +20,7 @@ append_path()
     fi
 }
 
-# add to front of path
+# add to beginning of path
 prepend_path()
 {
     if eval test -z "\$$1"
@@ -63,8 +59,6 @@ prepend_path_if_exists PATH $HOME/opt/android-sdk-linux_x86-1.0_r2
 append_path PYTHONPATH $HOME/.python
 
 append_path LD_LIBRARY_PATH $HOME/lib:$HOME/usr/lib
-prepend_path_if_exists LD_LIBRARY_PATH $HOME/opt/vtk-4.4.2/lib/vtk
-prepend_path_if_exists LD_LIBRARY_PATH $HOME/opt/glew-1.3.4/lib
 
 ###################################################
 ### Simple variables
@@ -75,14 +69,10 @@ then
     HOST=$(hostname | sed 's/\..*//')
 fi
 
-export CVSROOT="####"
-export CVS_RSH=ssh
-
 export EDITOR=vim
 export VISUAL=vim
 
 export LC_COLLATE="POSIX"
-export PV_INTERFACE_PATH=$HOME/src/paraview-xml
 
 if [ "$TERM" == "xterm" ]
 then
@@ -106,8 +96,6 @@ PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] "
 ### Aliases
 ###################################################
 
-alias cvstat='cvs status | fgrep "File:" | fgrep -v Up-to-date'
-alias mpirun='mpirun -machinefile ~/.mpi-hosts'
 alias mv='mv -iv'
 alias cp='cp -iv'
 alias grep='grep --color=auto'
@@ -123,7 +111,6 @@ if [ "$(uname -s)" == "Darwin" ]; then
     # Mac OS X stuff:
     alias ls='ls -AFGq'
     append_path PYTHONPATH ~/Library/Python
-    prepend_path PATH /opt/ibmcmp/xlf/8.1/bin
     # Fix Backspace/Delete confusion:
     stty erase ^?
     # XTerm's $MANPATH gets messed up, and I can't find where it's happening.
@@ -131,10 +118,4 @@ if [ "$(uname -s)" == "Darwin" ]; then
     unset MANPATH
 else
     alias ls='ls -FHq --color=auto'
-fi
-
-# On Patheon cluster, set slave node to local display:
-if [ ! -z $(expr "$HOST" : '\(pantheon-red[1-9]\)') ]
-then
-    export DISPLAY=:0.0
 fi

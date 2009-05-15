@@ -54,7 +54,7 @@ for i in $HOME/opt/*/bin
 do
     prepend_path_if_exists PATH $i
 done
-prepend_path_if_exists PATH $HOME/opt/android-sdk-linux_x86-1.0_r2
+prepend_path_if_exists PATH "$HOME/opt/android-sdk-linux_x86-1.5_r1/tools"
 
 append_path PYTHONPATH $HOME/.python
 
@@ -102,6 +102,8 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias rgrep='rgrep --color=auto'
+alias lrz1='ssh -A -p 2222 cglendenin@lrz1'
+alias lrz2='ssh -A -p 2222 cglendenin@lrz2'
 
 ###################################################
 ### Platform- or system-specific modifications

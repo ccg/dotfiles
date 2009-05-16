@@ -102,8 +102,8 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias rgrep='rgrep --color=auto'
-alias lrz1='ssh -A -p 2222 cglendenin@lrz1'
-alias lrz2='ssh -A -p 2222 cglendenin@lrz2'
+alias lrz1='ssh -Ax -p 2222 cglendenin@lrz1'
+alias lrz2='ssh -Ax -p 2222 cglendenin@lrz2'
 
 ###################################################
 ### Platform- or system-specific modifications

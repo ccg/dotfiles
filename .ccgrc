@@ -56,6 +56,9 @@ do
 done
 prepend_path_if_exists PATH "$HOME/opt/android-sdk-linux_x86-1.5_r1/tools"
 
+# Note to self: as of Python 2.6, there is now support for local
+# site-packages in ~/.local/. See PEP-370.
+# Better yet, just use virtualenv.
 append_path PYTHONPATH $HOME/.python
 
 append_path LD_LIBRARY_PATH $HOME/lib:$HOME/usr/lib

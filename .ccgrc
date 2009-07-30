@@ -104,6 +104,8 @@ alias egrep='egrep --color=auto'
 alias rgrep='rgrep --color=auto'
 alias lrz1='ssh -A -p 2222 cglendenin@lrz1'
 alias lrz2='ssh -A -p 2222 cglendenin@lrz2'
+alias djp='./manage.py runserver 0.0.0.0:8003'
+alias djpl='./manage.py runserver_plus 0.0.0.0:8003'
 
 ###################################################
 ### Platform- or system-specific modifications

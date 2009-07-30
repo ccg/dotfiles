@@ -56,6 +56,9 @@ do
 done
 prepend_path_if_exists PATH "$HOME/opt/android-sdk-linux_x86-1.5_r1/tools"
 
+# Note to self: as of Python 2.6, there is now support for local
+# site-packages in ~/.local/. See PEP-370.
+# Better yet, just use virtualenv.
 append_path PYTHONPATH $HOME/.python
 
 append_path LD_LIBRARY_PATH $HOME/lib:$HOME/usr/lib
@@ -102,10 +105,10 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias rgrep='rgrep --color=auto'
-alias lrz1='ssh -A -p 2222 cglendenin@lrz1'
-alias lrz2='ssh -A -p 2222 cglendenin@lrz2'
 alias djp='./manage.py runserver 0.0.0.0:8003'
 alias djpl='./manage.py runserver_plus 0.0.0.0:8003'
+alias lrz1='ssh -Ax -p 2222 cglendenin@lrz1'
+alias lrz2='ssh -Ax -p 2222 cglendenin@lrz2'
 
 ###################################################
 ### Platform- or system-specific modifications
@@ -121,5 +124,5 @@ if [ "$(uname -s)" == "Darwin" ]; then
     # Screw it. Just reset the whole thing, cuz the default works.
     unset MANPATH
 else
-    alias ls='ls -FHq --color=auto'
+    alias ls='ls -F --color=auto'
 fi

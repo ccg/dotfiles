@@ -1,0 +1,17 @@
+XTerm.vt100.backarrowKey: false
+XTerm.vt100.color4: #000099
+! On Mac OS X: faceName: Monaco / faceSize: 11
+XTerm.vt100.faceName: FreeMono
+XTerm.vt100.faceSize: 9
+XTerm.vt100.geometry: 88x50
+XTerm.vt100.loginShell: true
+XTerm.vt100.rightScrollBar: true
+XTerm.vt100.saveLines: 1000
+XTerm.vt100.scrollTtyOutput: false
+
+XTerm*SimpleMenu*foreground: black
+XTerm*SimpleMenu*background: gray
+
+xterm.vt100.background: white
+xterm.vt100.foreground: black
+xterm.vt100.scrollbar.background: gray

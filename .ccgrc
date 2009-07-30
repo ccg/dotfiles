@@ -122,5 +122,5 @@ if [ "$(uname -s)" == "Darwin" ]; then
     # Screw it. Just reset the whole thing, cuz the default works.
     unset MANPATH
 else
-    alias ls='ls -FHq --color=auto'
+    alias ls='ls -F --color=auto'
 fi

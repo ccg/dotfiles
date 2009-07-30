@@ -15,3 +15,4 @@ XTerm*SimpleMenu*background: gray
 xterm.vt100.background: white
 xterm.vt100.foreground: black
 xterm.vt100.scrollbar.background: gray
+Emacs.font: Monospace-10

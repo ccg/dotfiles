@@ -130,3 +130,14 @@ if [ "$(uname -s)" == "Darwin" ]; then
 else
     alias ls='ls -F --color=auto'
 fi
+
+###################################################
+### virtualenvwrapper
+###################################################
+export WORKON_HOME=$HOME/env
+if [ ! -d $WORKON_HOME ]
+then
+    mkdir -p $WORKON_HOME
+fi
+[ -f ~/.virtualenvwrapper ] && source ~/.virtualenvwrapper
+

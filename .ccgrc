@@ -59,7 +59,7 @@ prepend_path_if_exists PATH "$HOME/opt/android-sdk-linux_x86-1.5_r1/tools"
 # Note to self: as of Python 2.6, there is now support for local
 # site-packages in ~/.local/. See PEP-370.
 # Better yet, just use virtualenv.
-append_path PYTHONPATH $HOME/.python
+#append_path PYTHONPATH $HOME/.python
 
 append_path LD_LIBRARY_PATH $HOME/lib:$HOME/usr/lib
 
@@ -92,9 +92,6 @@ case $TERM in
         ;;
 esac
 
-# Stolen from Gentoo:
-PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] "
-
 ###################################################
 ### Aliases
 ###################################################
@@ -105,8 +102,12 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias rgrep='rgrep --color=auto'
-alias djp='./manage.py runserver 0.0.0.0:8003'
-alias djpl='./manage.py runserver_plus 0.0.0.0:8003'
+alias dj='python ./manage.py runserver 0.0.0.0:8003'
+alias djp='python ./manage.py runserver_plus 0.0.0.0:8003'
+alias djl='python ./manage.py runserver 0.0.0.0:8003 --settings=local-settings'
+alias djpl='python ./manage.py runserver_plus 0.0.0.0:8003 --settings=local-settings'
+alias djc='python ./manage.py runserver 0.0.0.0:8003 --settings=ccg-settings'
+alias djpc='python ./manage.py runserver_plus 0.0.0.0:8003 --settings=ccg-settings'
 alias lrz1='ssh -Ax -p 2222 cglendenin@lrz1'
 alias lrz2='ssh -Ax -p 2222 cglendenin@lrz2'
 
@@ -126,3 +127,33 @@ if [ "$(uname -s)" == "Darwin" ]; then
 else
     alias ls='ls -F --color=auto'
 fi
+
+###################################################
+### virtualenvwrapper
+###################################################
+export WORKON_HOME=$HOME/env
+if [ ! -d $WORKON_HOME ]
+then
+    mkdir -p $WORKON_HOME
+fi
+[ -f ~/.virtualenvwrapper ] && source ~/.virtualenvwrapper
+
+###################################################
+### git prompt hack
+###################################################
+# http://henrik.nyh.se/2008/12/git-dirty-prompt
+# http://www.simplisticcomplexity.com/2008/03/13/show-your-git-branch-name-in-your-prompt/
+#   username@Machine ~/dev/dir[master]$   # clean working directory
+#   username@Machine ~/dev/dir[master*]$  # dirty working directory
+
+function parse_git_dirty {
+    [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+}
+function parse_git_branch {
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ [\1$(parse_git_dirty)]/"
+}
+#export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ '
+
+# Stolen from Gentoo:
+#PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] "
+PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[00m\]\$(parse_git_branch) \$ "

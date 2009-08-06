@@ -136,7 +136,7 @@ if [ ! -d $WORKON_HOME ]
 then
     mkdir -p $WORKON_HOME
 fi
-[ -f ~/.virtualenvwrapper ] && source ~/.virtualenvwrapper
+[ -f ~/.virtualenvwrapper_bashrc ] && source ~/.virtualenvwrapper_bashrc
 
 ###################################################
 ### git prompt hack

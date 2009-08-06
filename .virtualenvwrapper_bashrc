@@ -1,3 +1,4 @@
+# vim: set ft=sh :
 #
 # Shell functions to act as wrapper for Ian Bicking's virtualenv
 # (http://pypi.python.org/pypi/virtualenv)
@@ -136,8 +137,8 @@ function virtualenvwrapper_show_workon_options () {
 # Usage: workon [environment_name]
 #
 function workon () {
-	typeset env_name="$1"
-	if [ "$env_name" = "" ]
+    typeset env_name="$1"
+    if [ "$env_name" = "" ]
     then
         virtualenvwrapper_show_workon_options
         return 1
@@ -162,7 +163,12 @@ function workon () {
         deactivate
     fi
 
+    # ccg PS1 hacks
+    _VIRTUALENV_WRAPPER_PS1="$PS1"
     source "$activate"
+    PS1="$_VIRTUALENV_WRAPPER_PS1"
+    unset _VIRTUALENV_WRAPPER_PS1
+    export ACTIVE_VIRTUALENV="$env_name"
 
     # Save the deactivate function from virtualenv
     virtualenvwrapper_saved_deactivate=$(typeset -f deactivate)
@@ -184,13 +190,16 @@ function workon () {
 
         virtualenvwrapper_source_hook "$env_postdeactivate_hook"
         virtualenvwrapper_source_hook "$WORKON_HOME/postdeactivate"
+
+        #ccg PS1 hack:
+        unset ACTIVE_VIRTUALENV
     }'
 
     virtualenvwrapper_source_hook "$WORKON_HOME/postactivate"
 
     virtualenvwrapper_source_hook "$VIRTUAL_ENV/bin/postactivate"
 
-	return 0
+    return 0
 }
 
 

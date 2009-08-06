@@ -149,11 +149,20 @@ fi
 function parse_git_dirty {
     [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
 }
+
 function parse_git_branch {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (Git branch: \1$(parse_git_dirty))/"
 }
-#export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ '
+
+function active_virtualenv {
+    if [ "$ACTIVE_VIRTUALENV" != "" ]
+    then
+        echo -n " (Virtualenv: $ACTIVE_VIRTUALENV)"
+    fi
+}
 
 # Stolen from Gentoo:
 #PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] "
-PS1="\n\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[00m\]\$(parse_git_branch)\n\$ "
+PS1="\n\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[00m\]\$(active_virtualenv)\$(parse_git_branch)\n\$ "
+# Save custom PS1 to restore later
+export CCG_PS1="$PS1"

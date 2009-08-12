@@ -10,7 +10,7 @@ do
         then
             echo "Skipping file '$dst'"
         else
-            echo "Linkng '$src' to '$dst'"
+            echo "Linking '$src' to '$dst'"
             ln -s "$src" "$dst"
         fi
     fi

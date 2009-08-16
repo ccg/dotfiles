@@ -1,6 +1,6 @@
 set nocompatible
 set bs=2
-"set laststatus=2
+set laststatus=2
 set ts=8 sts=4 sw=4 expandtab smarttab
 set autoindent smartindent
 

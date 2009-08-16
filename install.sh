@@ -2,17 +2,21 @@
 
 for i in .*
 do
-    src=$PWD/$i
-    dst=$HOME/$i
-    if [ -f $i ]
-    then
-        if [ -f $HOME/$i ]
-        then
-            echo "Skipping file '$dst'"
+    src="$PWD/$i"
+    dst="$HOME/$i"
+    if [ ! -f "$src" ]; then
+        echo "WARNING: something is wrong with file '$dst'"
+        continue
+    fi
+    if [ -f "$dst" ]; then
+        if [ ! -L "$dst" ]; then
+            echo "WARNING: '$dst' already exists and is NOT a symlink!"
         else
-            echo "Linking '$src' to '$dst'"
-            ln -s "$src" "$dst"
+            echo "Skipping file '$dst'"
         fi
+    else
+        echo "Linking '$src' to '$dst'"
+        ln -s "$src" "$dst"
     fi
 done
 

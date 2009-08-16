@@ -5,7 +5,7 @@ do
     src="$PWD/$i"
     dst="$HOME/$i"
     if [ ! -f "$src" ]; then
-        echo "WARNING: something is wrong with file '$dst'"
+        echo "Skipping '$dst'"
         continue
     fi
     if [ -f "$dst" ]; then

@@ -1,0 +1,5 @@
+export SSH_CLIENT="24.12.8.17 55173 2222"
+export SSH_TTY="/dev/pts/2"
+export SSH_AUTH_SOCK="/tmp/ssh-SDuXZP3712/agent.3712"
+export SSH_CONNECTION="24.12.8.17 55173 75.127.96.6 2222"
+export DISPLAY=""

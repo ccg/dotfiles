@@ -100,6 +100,10 @@ export DJANGO_SETTINGS_MODULE="ccg-settings"
 ### Aliases
 ###################################################
 
+# My most common typo.
+# Dear Ubuntu, please stop telling me to "sudo apt-get install sl"
+alias sl=ls
+
 alias mv='mv -iv'
 alias cp='cp -iv'
 alias grep='grep --color=auto'

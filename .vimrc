@@ -16,6 +16,7 @@ autocmd BufRead place.c set sw=2 sts=2
 autocmd BufRead *.txt set tw=76 wrap formatoptions+=n
 autocmd BufRead /tmp/cvs* set tw=76 wrap
 autocmd BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
+autocmd BufNewFile,BufRead *.html set ft=htmldjango
 
 " smartindent seems to have formatting leakage from cindent, because
 " it forces lines beginning with '#' to column 0.

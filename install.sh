@@ -1,13 +1,13 @@
 #!/bin/sh
 
-linkfile() {
+link() {
     src="$1"
     dst="$2"
-    if [ ! -f "$src" ]; then
-        #echo "Skipping '$dst' because it's not a regular file."
+    if [ ! -e "$src" ]; then
+        echo "ERROR: source object '$src' doesn't exist."
         return
     fi
-    if [ -f "$dst" ]; then
+    if [ -e "$dst" ]; then
         if [ ! -L "$dst" ]; then
             echo "WARNING: '$dst' already exists and is NOT a symlink!"
         else
@@ -23,15 +23,22 @@ linkfile() {
 # dot files (not directories)
 for i in .*
 do
-    linkfile "$PWD/$i" "$HOME/$i"
+    if [ ! -d "$i" ]
+    then
+        link "$PWD/$i" "$HOME/$i"
+    fi
 done
 
 # dot directories
-#[ -d .vim ] && ln -s .vim $HOME/.vim
+# by inclusion, so things like '..' and '.git' don't get in there accidentally
+for i in .vim
+do
+    [ -d "$i" ] && link "$PWD/$i" "$HOME/$i"
+done
 
 # helper scripts
 for i in fixssh grabssh
 do
     [ ! -d "$HOME/bin" ] && mkdir "$HOME/bin"
-    linkfile "$PWD/$i" "$HOME/bin/$i"
+    link "$PWD/$i" "$HOME/bin/$i"
 done

@@ -94,7 +94,6 @@ esac
 
 # Python stuff
 export PIP_DOWNLOAD_CACHE="$HOME/.pip"
-export DJANGO_SETTINGS_MODULE="ccg-settings"
 
 ###################################################
 ### Aliases

@@ -99,6 +99,10 @@ function mkvirtualenv () {
     [ ! -d "$WORKON_HOME/$envname" ] && return 0
     workon "$envname"
     virtualenvwrapper_source_hook "$WORKON_HOME/postmkvirtualenv"
+    # these commands could also go into postmkvirtualenv, but that directory
+    # is not in version control
+    echo "Upgrading setuptools and installing pip..."
+    easy_install -U setuptools && easy_install pip
 }
 
 # Remove an environment, in the WORKON_HOME.

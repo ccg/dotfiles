@@ -1,5 +1,12 @@
 vbell off
-escape ``
+# trying to get vim mouse support to work inside screen.
+# unfortunately, the mouse wheel's "scroll up" event sends a control
+# sequence that includes a backtick, and it messes everything up.
+# first swap F12 and ` like this:
+# xmodmap -e "keycode 49 = F12"
+# xmodmap -e "keycode 96 = grave"
+bindkey -k F2 command    # for some reason 'F2' means F12 here.
+#escape `F2 # can't figure out how to tell it F12
 startup_message off
 hardstatus on
 hardstatus alwayslastline

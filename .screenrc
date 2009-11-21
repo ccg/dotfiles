@@ -5,9 +5,10 @@ vbell off
 # first swap F12 and ` like this:
 # xmodmap -e "keycode 49 = F12"
 # xmodmap -e "keycode 96 = grave"
-bindkey -k F2 command    # for some reason 'F2' means F12 here.
+#bindkey -k F2 command    # for some reason 'F2' means F12 here.
 #escape `F2 # can't figure out how to tell it F12
 startup_message off
+escape ^O^O
 hardstatus on
 hardstatus alwayslastline
 hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %m/%d %C%a "

@@ -1,15 +1,14 @@
 " Vim color file
 " Maintaner: Radu Dineiu <radu.dineiu@gmail.com>
 " URL: http://ld.yi.org/vim/rdark/
-" Last Change: 2007 Jun 23
-" Version: 0.6
+" Last Change: 2006 Dec 23
+" Version: 0.5
 "
 " Features:
 "   - let rdark_current_line = 1 if you want to highlight the current line
 "
 " Changelog:
 "   0.5 - fixed the Pmenu colors
-"   0.6 - added SignColumn colors
 
 set background=dark
 
@@ -45,7 +44,6 @@ hi MoreMsg guifg=#729fcf
 hi Question guifg=#8ae234 gui=none
 hi WildMenu guifg=#eeeeec guibg=#0e1416
 hi LineNr guifg=#3f4b4d guibg=#000000
-hi SignColumn guibg=#1e2426
 
 " Pmenu
 hi Pmenu guibg=#2e3436 guifg=#eeeeec

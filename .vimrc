@@ -4,6 +4,11 @@ set laststatus=2
 set ts=8 sts=4 sw=4 expandtab smarttab
 set autoindent smartindent
 
+if &term =~ "^screen"
+    set ttymouse=xterm2
+endif
+set mouse=a
+
 " Show tab chars and trailing whitespace.
 " Useful for cleaning up slop left by Emacs users.
 set list

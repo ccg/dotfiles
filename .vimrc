@@ -14,6 +14,8 @@ set mouse=a
 set list
 set listchars=tab:>-,trail:-
 
+" do i really want to do this?
+" autocmd BufWrite * %s/\s\+$//
 autocmd BufRead *.c set cindent
 autocmd BufRead *.cpp set cindent
 autocmd BufRead *.cxx set cindent

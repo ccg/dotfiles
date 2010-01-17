@@ -3,6 +3,7 @@ set bs=2
 set laststatus=2
 set ts=8 sts=4 sw=4 expandtab smarttab
 set autoindent smartindent
+set nowrap
 
 if &term =~ "^screen"
     set ttymouse=xterm2

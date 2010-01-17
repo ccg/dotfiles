@@ -25,6 +25,12 @@ autocmd BufRead /tmp/cvs* set tw=76 wrap
 autocmd BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
 autocmd BufNewFile,BufRead *.html set ft=htmldjango
 
+" try error-highlighting text that goes past colum 80
+match ErrorMsg '\%>80v.\+'
+" alternative:
+"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+"match OverLength /\%81v.*/
+
 " smartindent seems to have formatting leakage from cindent, because
 " it forces lines beginning with '#' to column 0.
 autocmd BufRead *.py set nocindent nosmartindent autoindent

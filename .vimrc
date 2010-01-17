@@ -13,9 +13,14 @@ set mouse=a
 " Show tab chars and trailing whitespace.
 " Useful for cleaning up slop left by Emacs users.
 set list
-set listchars=tab:>-,trail:-
+set listchars=tab:>-,trail:▶  "× ✖ • ● ▄ ■ ▐ ░ ▒ ▓ ▞ ┅ ━ ◀ ▶ ⋀ ⊥ ⎵ ⎶  ➜ ╳
+
+" require for pyflakes.vim:
+" is this conflicting with python.vim?
+"filetype plugin indent on
 
 " do i really want to do this?
+" automatically strip trailing whitespace when saving a file:
 " autocmd BufWrite * %s/\s\+$//
 autocmd BufRead *.c set cindent
 autocmd BufRead *.cpp set cindent

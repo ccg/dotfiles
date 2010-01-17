@@ -1,2 +1,1 @@
-(set-default-font "Bitstream Vera Sans Mono-9")
-
+(set-default-font "DejaVu Sans Mono-8")

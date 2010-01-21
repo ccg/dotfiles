@@ -1,0 +1,10 @@
+#!/bin/sh
+
+base="${ACTIVE_VIRTUALENV%%-*}"
+srcdir="/home/chad/src/$base"
+if [ -d "$srcdir" ]; then
+    echo "cd $srcdir"
+    cd "$srcdir"
+else
+    echo "could not find dir $srcdir"
+fi

@@ -11,7 +11,7 @@ link() {
         if [ ! -L "$dst" ]; then
             echo "WARNING: '$dst' already exists and is NOT a symlink!"
         else
-            #echo "Skipping file '$dst'"
+            echo "Skipping file '$dst'"
             return
         fi
     else
@@ -36,9 +36,22 @@ do
     [ -d "$i" ] && link "$PWD/$i" "$HOME/$i"
 done
 
+install_scripts() {
+    targetdir="$1"
+    [ ! -d "$targetdir" ] && mkdir "$targetdir"
+    shift
+    for i in $@
+    do
+        link "$PWD/$i" "$targetdir/$i"
+    done
+}
+
 # helper scripts
-for i in fixssh grabssh
-do
-    [ ! -d "$HOME/bin" ] && mkdir "$HOME/bin"
-    link "$PWD/$i" "$HOME/bin/$i"
-done
+#for i in fixssh grabssh
+#do
+#    [ ! -d "$HOME/bin" ] && mkdir "$HOME/bin"
+#    link "$PWD/$i" "$HOME/bin/$i"
+#done
+
+install_scripts "$HOME/bin" fixssh grabssh
+install_scripts "$HOME/env" postactivate

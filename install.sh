@@ -11,7 +11,7 @@ link() {
         if [ ! -L "$dst" ]; then
             echo "WARNING: '$dst' already exists and is NOT a symlink!"
         else
-            echo "Skipping file '$dst'"
+            #echo "Skipping file '$dst'"
             return
         fi
     else

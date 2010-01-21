@@ -56,11 +56,6 @@ do
 done
 prepend_path_if_exists PATH "$HOME/opt/android-sdk-linux_x86-1.5_r1/tools"
 
-# Note to self: as of Python 2.6, there is now support for local
-# site-packages in ~/.local/. See PEP-370.
-# Better yet, just use virtualenv.
-#append_path PYTHONPATH $HOME/.python
-
 append_path LD_LIBRARY_PATH $HOME/lib:$HOME/usr/lib
 
 ###################################################
@@ -94,6 +89,12 @@ esac
 
 # Python stuff
 export PIP_DOWNLOAD_CACHE="$HOME/.pip"
+# I probably should have named that repo something other than 'dotfiles' if
+# it's going to hold things like python scripts. Oh well.
+export PYTHONSTARTUP="$HOME/src/dotfiles/readline.py"
+# Note to self: as of Python 2.6, there is now support for local
+# site-packages in ~/.local/. See PEP-370.
+
 
 ###################################################
 ### Aliases

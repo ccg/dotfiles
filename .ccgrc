@@ -191,11 +191,10 @@ function install_pil {
 # Stolen from Gentoo:
 #PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] "
 
-# For now, this is too slow for certain projects that have checked in multiple
-# megabytes of static images into Git...
-PS1="\n\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[00m\]\$(active_virtualenv)\$(parse_git_branch)\n\$ "
-# Save custom PS1 to restore later
-export CCG_PS1="$PS1"
+# For now, my full PS1 is too slow for certain projects that have checked in
+# multiple megabytes of static images into Git...
+PS1_BASE="\n\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[00m\]\$(active_virtualenv)"
+export FASTER_PS1="${PS1_BASE}\n\$ "
+export CCG_PS1="${PS1_BASE}\$(parse_git_branch)\n\$ "
 
-FASTER_PS1="\n\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[00m\]\$(active_virtualenv)\n\$ "
-PS1="$FASTER_PS1"
+PS1="$CCG_PS1"

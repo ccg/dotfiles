@@ -11,7 +11,7 @@ endif
 set mouse=a
 
 " Show tab chars and trailing whitespace.
-" Useful for cleaning up slop left by Emacs users.
+" Useful for cleaning up the slop left by Emacs users.
 set list
 set listchars=tab:>-,trail:▶  "× ✖ • ● ▄ ■ ▐ ░ ▒ ▓ ▞ ┅ ━ ◀ ▶ ⋀ ⊥ ⎵ ⎶  ➜ ╳
 

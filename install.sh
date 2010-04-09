@@ -54,4 +54,4 @@ install_scripts() {
 #done
 
 install_scripts "$HOME/bin" fixssh grabssh
-install_scripts "$HOME/env" postactivate
+install_scripts "$HOME/env" postactivate postmkvirtualenv

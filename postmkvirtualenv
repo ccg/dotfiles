@@ -1,0 +1,11 @@
+#!/bin/sh
+
+echo "Upgrading setuptools and installing pip..."
+easy_install -U setuptools && easy_install pip
+
+# snow leopard + libedit + ipython = broken line editing
+# use readline
+if [ "$(uname -s)" == "Darwin" ]; then
+    # currently doesn't work with pip, for reasons unknown
+    easy_install readline
+fi

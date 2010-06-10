@@ -146,6 +146,7 @@ if [ "$(uname -s)" == "Darwin" ]; then
     # Screw it. Just reset the whole thing, cuz the default works.
     unset MANPATH
     source /usr/local/etc/bash_completion.d/git-completion.bash
+    alias mysql_start='/usr/local/share/mysql/mysql.server start'
 else
     alias ls='ls -F --color=auto'
 fi

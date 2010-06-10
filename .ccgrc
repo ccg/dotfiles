@@ -147,6 +147,7 @@ if [ "$(uname -s)" == "Darwin" ]; then
     unset MANPATH
     source /usr/local/etc/bash_completion.d/git-completion.bash
     alias mysql_start='/usr/local/share/mysql/mysql.server start'
+    export TM_RST2HTML='/Users/chad/env/TextMate/bin/rst2html.py'
 else
     alias ls='ls -F --color=auto'
 fi

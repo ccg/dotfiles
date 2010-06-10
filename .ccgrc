@@ -111,6 +111,7 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias rgrep='rgrep --color=auto'
+alias diff='colordiff'
 
 alias dj='python ./manage.py runserver 0.0.0.0:8003'
 alias djp='python ./manage.py runserver_plus 0.0.0.0:8003'

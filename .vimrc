@@ -32,6 +32,13 @@ autocmd BufRead /tmp/cvs* set tw=76 wrap
 autocmd BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
 autocmd BufNewFile,BufRead *.html set ft=htmldjango
 
+" Enable omnicomplete
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
+
 " try error-highlighting text that goes past colum 80
 match ErrorMsg '\%>80v.\+'
 " alternative:

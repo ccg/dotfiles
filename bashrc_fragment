@@ -12,4 +12,6 @@ pydev_update() {
     fi
 }
 
-pydev_update
+# need to supress pushd/popd output or else running this function
+# at login will break ssh/scp.
+#pydev_update

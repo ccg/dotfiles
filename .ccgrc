@@ -58,6 +58,8 @@ prepend_path_if_exists PATH "$HOME/opt/android-sdk-linux_x86-1.5_r1/tools"
 
 append_path LD_LIBRARY_PATH $HOME/lib:$HOME/usr/lib
 
+append_path PYTHONPATH .
+
 ###################################################
 ### Simple variables
 ###################################################

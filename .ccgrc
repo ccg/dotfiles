@@ -43,6 +43,18 @@ prepend_path_if_exists()
     fi
 }
 
+# PyDev goodies
+export PYDEV_DIR="$HOME/src/pydev"
+
+pydev_update() {
+    if [ -d "$PYDEV_DIR" ]
+    then
+        pushd "$PYDEV_DIR"
+        source "bin/.bashrc"
+        popd
+    fi
+}
+
 ###################################################
 ### PATH-type list variables
 ###################################################

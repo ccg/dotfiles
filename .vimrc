@@ -40,7 +40,7 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 
-" try error-highlighting text that goes past colum 80
+" try error-highlighting text that goes past column 80
 match ErrorMsg '\%>80v.\+'
 " alternative:
 "highlight OverLength ctermbg=red ctermfg=white guibg=#592929

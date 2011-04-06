@@ -40,8 +40,10 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 
+" Vim 7.3: awesome
+set colorcolumn=80
 " try error-highlighting text that goes past column 80
-match ErrorMsg '\%>80v.\+'
+" match ErrorMsg '\%>80v.\+'
 " alternative:
 "highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 "match OverLength /\%81v.*/

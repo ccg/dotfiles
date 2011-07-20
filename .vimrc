@@ -41,7 +41,9 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 
 " Vim 7.3: awesome
-set colorcolumn=80
+if version >= 703
+    set colorcolumn=80
+endif
 " try error-highlighting text that goes past column 80
 " match ErrorMsg '\%>80v.\+'
 " alternative:

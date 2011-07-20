@@ -59,14 +59,16 @@ pydev_update() {
 ### PATH-type list variables
 ###################################################
 
-prepend_path PATH /usr/local/bin
-prepend_path PATH $HOME/usr/bin
+for i in /opt/*/bin
+do
+    prepend_path_if_exists PATH $i
+done
+
 prepend_path PATH $HOME/bin
 for i in $HOME/opt/*/bin
 do
     prepend_path_if_exists PATH $i
 done
-prepend_path_if_exists PATH "$HOME/opt/android-sdk-linux_x86-1.5_r1/tools"
 
 append_path LD_LIBRARY_PATH $HOME/lib:$HOME/usr/lib
 

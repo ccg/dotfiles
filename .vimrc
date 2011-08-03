@@ -1,4 +1,5 @@
-﻿set nocompatible
+﻿call pathogen#infect()  " this line before ``filetype plugin indent on``
+set nocompatible
 set bs=2
 set laststatus=2
 set ts=8 sts=4 sw=4 expandtab smarttab
@@ -60,3 +61,4 @@ set nu
 set nostartofline   " Leave cursor in same column after page up/down.
 set ruler
 syntax on
+iab pdbs import pdb; pdb.set_trace()

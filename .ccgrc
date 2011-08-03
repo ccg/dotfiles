@@ -65,12 +65,11 @@ do
 done
 
 prepend_path PATH $HOME/bin
+
 for i in $HOME/opt/*/bin
 do
     prepend_path_if_exists PATH $i
 done
-
-append_path LD_LIBRARY_PATH $HOME/lib:$HOME/usr/lib
 
 append_path PYTHONPATH .
 

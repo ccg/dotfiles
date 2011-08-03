@@ -130,12 +130,10 @@ alias diff='colordiff'
 
 alias dj='python ./manage.py runserver 0.0.0.0:8003'
 alias djp='python ./manage.py runserver_plus 0.0.0.0:8003'
-alias djl='python ./manage.py runserver 0.0.0.0:8003 --settings=local-settings'
-alias djpl='python ./manage.py runserver_plus 0.0.0.0:8003 --settings=local-settings'
-alias djc='python ./manage.py runserver 0.0.0.0:8003 --settings=ccg-settings'
-alias djpc='python ./manage.py runserver_plus 0.0.0.0:8003 --settings=ccg-settings'
+alias djc='python ./manage.py runserver 0.0.0.0:8003 --settings=settings_ccg'
+alias djpc='python ./manage.py runserver_plus 0.0.0.0:8003 --settings=settings_ccg'
 alias djs="python ./manage.py shell_plus"
-alias djsc="python ./manage.py shell_plus --settings=ccg-settings"
+alias djsc="python ./manage.py shell_plus --settings=settings_ccg"
 
 alias lrz1='ssh -Ax -p 2222 cglendenin@lrz1'
 alias lrz2='ssh -Ax -p 2222 cglendenin@lrz2'
@@ -155,6 +153,9 @@ if [ "$(uname -s)" == "Darwin" ]; then
     # Mac OS X stuff:
     alias ls='ls -AFGq'
     append_path PYTHONPATH ~/Library/Python
+    prepend_path PYTHONPATH .
+    append_path PATH "$HOME/Applications/android-sdk-mac_86/tools"
+    prepend_path PATH "/usr/local/sbin"
     # Fix Backspace/Delete confusion:
     stty erase ^?
     # XTerm's $MANPATH gets messed up, and I can't find where it's happening.
@@ -162,6 +163,7 @@ if [ "$(uname -s)" == "Darwin" ]; then
     unset MANPATH
     BASH_GIT_COMPLETION="/usr/local/etc/bash_completion.d/git-completion.bash"
     alias mysql_start='/usr/local/share/mysql/mysql.server start'
+    alias postgres_start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
     export TM_RST2HTML='/Users/chad/env/TextMate/bin/rst2html.py'
 else
     alias ls='ls -F --color=auto'
@@ -219,3 +221,8 @@ export FASTER_PS1="${PS1_BASE}\n\$ "
 export CCG_PS1="${PS1_BASE}\$(parse_git_branch)\n\$ "
 
 PS1="$CCG_PS1"
+
+# Finally, rvm magic:
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+append_path NODE_PATH /usr/local/lib/node

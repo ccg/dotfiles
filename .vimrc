@@ -5,8 +5,18 @@ set laststatus=2
 set ts=8 sts=4 sw=4 expandtab smarttab
 set autoindent smartindent
 set nowrap
+" incremental searching. ignore case unless you type a capital letter,
+" which makes the search case-sensitive
 set ignorecase smartcase incsearch
+" temporarily disable search highlighting when it gets annoying
+nmap <silent> <leader>h :silent :nohlsearch<CR>
 set noequalalways
+set title
+
+let mapleader = ','
+
+" NERDTree Config
+map <Leader>n :NERDTreeToggle<CR>
 
 if &term =~ "^screen"
     set ttymouse=xterm2

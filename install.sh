@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# First, make sure all the submodules are checked out
+git submodule update --init --recursive
+
 link() {
     src="$1"
     dst="$2"

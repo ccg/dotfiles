@@ -31,7 +31,10 @@ set mouse=a
 " Show tab chars and trailing whitespace.
 " Useful for cleaning up the slop left by Emacs users.
 set list
-set listchars=tab:>-,trail:▶  "× ✖ • ● ▄ ■ ▐ ░ ▒ ▓ ▞ ┅ ━ ◀ ▶ ⋀ ⊥ ⎵ ⎶  ➜ ╳
+set listchars=tab:\│⋯,trail:·
+"\|┈
+"set listchars=tab:>-,trail:·  "▶ × ✖ • ● ▄ ■ ▐ ░ ▒ ▓ ▞ ┅ ━ ◀ ▶ ⋀ ⊥ ⎵ ⎶  ➜ ╳
+
 
 " require for pyflakes.vim:
 " is this conflicting with python.vim?

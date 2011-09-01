@@ -15,8 +15,13 @@ set title
 
 let mapleader = ','
 
-" NERDTree Config
+" ==== NERDTree Config ====
+" Keyboard shortcut to open NERDTree
 map <Leader>n :NERDTreeToggle<CR>
+" Reduce UI clutter (use the 'u' key to move up a dir)
+let NERDTreeMinimalUI = 1
+" Use arrows instead of + and ~ characters for directories
+let NERDTreeDirArrows = 1
 
 if &term =~ "^screen"
     set ttymouse=xterm2

@@ -2,6 +2,9 @@
 set nocompatible
 set bs=2
 set laststatus=2
+" Redefining a tab to be anything other than 8 spaces is like redefining the
+" value of pi; sure, you can be internally consistent, but as soon as you try
+" to work with somebody else, none of your stuff lines up.
 set ts=8 sts=4 sw=4 expandtab smarttab
 set autoindent smartindent
 set nowrap
@@ -11,6 +14,8 @@ set ignorecase smartcase incsearch
 " temporarily disable search highlighting when it gets annoying
 nmap <silent> <leader>h :silent :nohlsearch<CR>
 set noequalalways
+
+" Change the titlebar to show the current file when running under a terminal.
 set title
 
 let mapleader = ','
@@ -23,13 +28,18 @@ let NERDTreeMinimalUI = 1
 " Use arrows instead of + and ~ characters for directories
 let NERDTreeDirArrows = 1
 
+" If we're running under GNU Screen, pretend that it's an xterm so that
+" the mouse will work correctly.
 if &term =~ "^screen"
     set ttymouse=xterm2
 endif
+
+" Let Vim take over when running in a terminal so that it's possible to move
+" the cursor by clicking, resize split windows by dragging the divider, etc.
 set mouse=a
 
-" Show tab chars and trailing whitespace.
-" Useful for cleaning up the slop left by Emacs users.
+" Make it obvious where hard-tab characters (ASCII char #9) appear.
+" Also show trailing whitespace.
 set list
 set listchars=tab:\│⋯,trail:·
 "\|┈
@@ -59,7 +69,8 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 
-" Vim 7.3: awesome
+" If we're running under Vim version >= 7.3, highlight column 80 as the right
+" margin.
 if version >= 703
     set colorcolumn=80
 endif
@@ -74,9 +85,13 @@ endif
 autocmd BufRead *.py set nocindent nosmartindent autoindent
 
 let fortran_free_source=1   " Default on new files is fixed-format Fortran
+" Tab-complete the way Bash does it.
 set wildmode=longest,list
+
 set nu
 set nostartofline   " Leave cursor in same column after page up/down.
 set ruler
 syntax on
+
+" Abbreviation for inserting a Python debugger breakpoint
 iab pdbs import pdb; pdb.set_trace()

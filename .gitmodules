@@ -7,3 +7,6 @@
 [submodule ".vim/bundle/nerdtree"]
 	path = .vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule ".vim/bundle/rdark"]
+	path = .vim/bundle/rdark
+	url = https://github.com/ccg/rdark.git

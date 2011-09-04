@@ -1,23 +1,39 @@
-﻿call pathogen#infect()  " this line before ``filetype plugin indent on``
+﻿" Pathogen must be activated before calling ``filetype plugin indent on``
+call pathogen#infect()
+
+" Do not force vi compatibility.
 set nocompatible
+
+" Allowing backspacing over anything while in insert mode.
 set bs=2
+
+" Always show the statusline below every window.
 set laststatus=2
-" Redefining a tab to be anything other than 8 spaces is like redefining the
-" value of pi; sure, you can be internally consistent, but as soon as you try
-" to work with somebody else, none of your stuff lines up.
+
+" Treat a hard-tab (ASCII byte #9) character in a file as a mod-8 indentation,
+" but when autoindenting, indentation shifting, or pressing <Tab>, use mod-4
+" indentation, and insert spaces instead of hard-tab characters.
 set ts=8 sts=4 sw=4 expandtab smarttab
+
+" Convenient indentation.
 set autoindent smartindent
+
+" Do not wrap lines of text.
 set nowrap
+
 " incremental searching. ignore case unless you type a capital letter,
 " which makes the search case-sensitive
 set ignorecase smartcase incsearch
 " temporarily disable search highlighting when it gets annoying
 nmap <silent> <leader>h :silent :nohlsearch<CR>
+
+" Don't automatically resize windows when opening or closing them.
 set noequalalways
 
 " Change the titlebar to show the current file when running under a terminal.
 set title
 
+" Remap the 'Leader' key for things like opening NERDTree with ',n'
 let mapleader = ','
 
 " ==== NERDTree Config ====
@@ -53,6 +69,7 @@ set listchars=tab:\│⋯,trail:·
 " do i really want to do this?
 " automatically strip trailing whitespace when saving a file:
 " autocmd BufWrite * %s/\s\+$//
+" TODO: keyboard shortcut to strip trailing whitespaces on demand
 autocmd BufRead *.c set cindent
 autocmd BufRead *.cpp set cindent
 autocmd BufRead *.cxx set cindent
@@ -85,12 +102,23 @@ endif
 autocmd BufRead *.py set nocindent nosmartindent autoindent
 
 let fortran_free_source=1   " Default on new files is fixed-format Fortran
+
 " Tab-complete the way Bash does it.
 set wildmode=longest,list
 
+" Show line numbers in the buffer.
 set nu
-set nostartofline   " Leave cursor in same column after page up/down.
+
+" Leave cursor in same column after page up/down.
+set nostartofline
+
+" Always show the line,column numbers in the statusline.
 set ruler
+
+" Always use syntax highlighting.
+" If Vim is not highlighting the way you expect, you can try telling it
+" explicitly what filetype to use. For example, to highlight a .json file,
+" use :set filetype=javascript (or :set ft=javascript)
 syntax on
 
 " Abbreviation for inserting a Python debugger breakpoint

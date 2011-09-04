@@ -105,6 +105,9 @@ set nostartofline
 " Always show the line,column numbers in the statusline.
 set ruler
 
+" Show the beginning of multi-key commands below the status line:
+set showcmd
+
 " Always use syntax highlighting.
 " If Vim is not highlighting the way you expect, you can try telling it
 " explicitly what filetype to use. For example, to highlight a .json file,

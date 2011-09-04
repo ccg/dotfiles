@@ -73,10 +73,7 @@ set listchars=tab:\│⋯,trail:·
 autocmd BufRead *.c set cindent
 autocmd BufRead *.cpp set cindent
 autocmd BufRead *.cxx set cindent
-autocmd BufRead place.c set sw=2 sts=2
 autocmd BufRead *.txt set tw=76 wrap formatoptions+=n
-autocmd BufRead /tmp/cvs* set tw=76 wrap
-autocmd BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
 autocmd BufNewFile,BufRead *.html set ft=htmldjango
 
 " Enable omnicomplete
@@ -91,17 +88,10 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 if version >= 703
     set colorcolumn=80
 endif
-" try error-highlighting text that goes past column 80
-" match ErrorMsg '\%>80v.\+'
-" alternative:
-"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-"match OverLength /\%81v.*/
 
 " smartindent seems to have formatting leakage from cindent, because
 " it forces lines beginning with '#' to column 0.
 autocmd BufRead *.py set nocindent nosmartindent autoindent
-
-let fortran_free_source=1   " Default on new files is fixed-format Fortran
 
 " Tab-complete the way Bash does it.
 set wildmode=longest,list

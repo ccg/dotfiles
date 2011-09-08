@@ -11,3 +11,4 @@ else
 endif
 
 colorscheme rdark
+set cursorline cursorcolumn

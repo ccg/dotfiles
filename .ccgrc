@@ -229,3 +229,6 @@ PS1="$CCG_PS1"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 append_path NODE_PATH /usr/local/lib/node_modules
+
+# Learn me a Haskell
+append_path PATH ~/.cabal/bin

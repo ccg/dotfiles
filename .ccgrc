@@ -135,9 +135,9 @@ alias djpc='python ./manage.py runserver_plus 0.0.0.0:8003 --settings=settings_c
 alias djs="python ./manage.py shell_plus"
 alias djsc="python ./manage.py shell_plus --settings=settings_ccg"
 
-alias lrz1='ssh -Ax -p 2222 cglendenin@lrz1'
-alias lrz2='ssh -Ax -p 2222 cglendenin@lrz2'
-alias lrz3='ssh -Ax -p 22 ccg@lrz3'
+alias lrz1='ssh -Ax -p 2222 cglendenin@75.127.96.44'
+alias lrz2='ssh -Ax -p 2222 cglendenin@75.127.96.6'
+alias lrz3='ssh -Ax -p 22 ccg@74.207.235.157'
 
 alias hs1='ssh -Ax chadg@highsite1'
 alias hs2='ssh -Ax ccg@highsite2'

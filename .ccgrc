@@ -156,6 +156,9 @@ if [ "$(uname -s)" == "Darwin" ]; then
     prepend_path PYTHONPATH .
     append_path PATH "$HOME/Applications/android-sdk-mac_86/tools"
     prepend_path PATH "/usr/local/sbin"
+    # Make sure /usr/local/bin is before /usr/bin so that Homebrew's postgres
+    # commands take precendence:
+    prepend_path PATH "/usr/local/bin"
     # Fix Backspace/Delete confusion:
     stty erase ^?
     # XTerm's $MANPATH gets messed up, and I can't find where it's happening.

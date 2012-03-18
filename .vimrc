@@ -76,6 +76,10 @@ autocmd BufRead *.cxx set cindent
 autocmd BufRead *.txt set tw=76 wrap formatoptions+=n
 autocmd BufNewFile,BufRead *.html set ft=htmldjango
 
+" Normally, I use four-space indentation, but the Ruby standard
+" appears to be two spaces.
+autocmd FileType ruby set sw=2 sts=2
+
 " Enable omnicomplete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS

@@ -228,4 +228,4 @@ PS1="$CCG_PS1"
 # Finally, rvm magic:
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-append_path NODE_PATH /usr/local/lib/node
+append_path NODE_PATH /usr/local/lib/node_modules

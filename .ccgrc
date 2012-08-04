@@ -136,11 +136,6 @@ alias djs="python ./manage.py shell_plus"
 alias djsc="python ./manage.py shell_plus --settings=settings_ccg"
 
 alias lrz1='ssh -Ax -p 2222 cglendenin@75.127.96.44'
-alias lrz2='ssh -Ax -p 2222 cglendenin@75.127.96.6'
-alias lrz3='ssh -Ax -p 22 ccg@74.207.235.157'
-
-alias hs1='ssh -Ax chadg@highsite1'
-alias hs2='ssh -Ax ccg@highsite2'
 
 alias attach="$HOME/bin/grabssh ; screen -d -r"
 alias fixssh="source $HOME/bin/fixssh"

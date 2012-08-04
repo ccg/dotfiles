@@ -135,6 +135,8 @@ alias djpc='python ./manage.py runserver_plus 0.0.0.0:8003 --settings=settings_c
 alias djs="python ./manage.py shell_plus"
 alias djsc="python ./manage.py shell_plus --settings=settings_ccg"
 
+alias be='bundle exec'
+
 alias lrz1='ssh -Ax -p 2222 cglendenin@75.127.96.44'
 
 alias attach="$HOME/bin/grabssh ; screen -d -r"

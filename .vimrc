@@ -120,3 +120,6 @@ syntax on
 
 " Abbreviation for inserting a Python debugger breakpoint
 iab pdbs import pdb; pdb.set_trace()
+
+" Keep all those pesky .swp files in one place.
+set directory=~/.vim/tmp,~/tmp,/var/tmp,/tmp

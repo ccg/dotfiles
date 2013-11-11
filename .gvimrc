@@ -5,7 +5,8 @@ set gcr=n:blinkon0
 set guioptions-=T
 
 if has("macunix")
-    set guifont=Monaco:h13   "Menlo:h13
+    "set guifont=Monaco:h13
+    set guifont=Menlo:h12
 else
     set guifont="Bitstream Vera Sans Mono 10"
 endif

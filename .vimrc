@@ -75,6 +75,8 @@ autocmd BufRead *.cpp set cindent
 autocmd BufRead *.cxx set cindent
 autocmd BufRead *.txt set tw=76 wrap formatoptions+=n
 autocmd BufNewFile,BufRead *.html set ft=htmldjango
+autocmd BufNewFile,BufRead *.json set ft=typescript sw=2
+autocmd BufNewFile,BufRead *.ts set ft=typescript sw=2
 
 " Normally, I use four-space indentation, but the Ruby standard
 " appears to be two spaces.

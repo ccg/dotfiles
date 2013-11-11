@@ -125,3 +125,11 @@ iab pdbs import pdb; pdb.set_trace()
 
 " Keep all those pesky .swp files in one place.
 set directory=~/.vim/tmp,~/tmp,/var/tmp,/tmp
+
+" Only use one space between sentences when joining lines or
+" reformatting paragraphs.
+set nojoinspaces
+
+" Don't fold the whole file by default.
+" It's annoying to open a source-code file and not see anything.
+set foldlevel=20

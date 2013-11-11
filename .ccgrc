@@ -155,7 +155,9 @@ if [ "$(uname -s)" == "Darwin" ]; then
     prepend_path PATH "/usr/local/sbin"
     # Make sure /usr/local/bin is before /usr/bin so that Homebrew's postgres
     # commands take precendence:
-    prepend_path PATH "/usr/local/bin"
+    #prepend_path PATH "/usr/local/bin"
+    # need to force it:
+    PATH="/usr/local/bin:$PATH"
     # Fix Backspace/Delete confusion:
     stty erase ^?
     # XTerm's $MANPATH gets messed up, and I can't find where it's happening.
@@ -168,6 +170,7 @@ if [ "$(uname -s)" == "Darwin" ]; then
     alias mongo_start="mongod run --config /usr/local/Cellar/mongodb/2.0.4-x86_64/mongod.conf"
     alias redis_start="redis-server /usr/local/etc/redis.conf"
     export TM_RST2HTML='/Users/chad/env/TextMate/bin/rst2html.py'
+    prepend_path_if_exists PATH "/usr/local/share/npm/bin"
 else
     alias ls='ls -F --color=auto'
     BASH_GIT_COMPLETION="/etc/bash_completion.d/git"

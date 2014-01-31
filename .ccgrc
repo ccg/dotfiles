@@ -128,16 +128,7 @@ alias egrep='egrep --color=auto'
 alias rgrep='rgrep --color=auto'
 alias diff='colordiff'
 
-alias dj='python ./manage.py runserver 0.0.0.0:8003'
-alias djp='python ./manage.py runserver_plus 0.0.0.0:8003'
-alias djc='python ./manage.py runserver 0.0.0.0:8003 --settings=settings_ccg'
-alias djpc='python ./manage.py runserver_plus 0.0.0.0:8003 --settings=settings_ccg'
-alias djs="python ./manage.py shell_plus"
-alias djsc="python ./manage.py shell_plus --settings=settings_ccg"
-
 alias be='bundle exec'
-
-alias lrz1='ssh -Ax -p 2222 cglendenin@75.127.96.44'
 
 alias attach="$HOME/bin/grabssh ; screen -d -r"
 alias fixssh="source $HOME/bin/fixssh"
@@ -167,9 +158,6 @@ if [ "$(uname -s)" == "Darwin" ]; then
     alias mysql_start='/usr/local/share/mysql/mysql.server start'
     alias pg_start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
     alias pg_stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
-    alias mongo_start="mongod run --config /usr/local/Cellar/mongodb/2.0.4-x86_64/mongod.conf"
-    alias redis_start="redis-server /usr/local/etc/redis.conf"
-    export TM_RST2HTML='/Users/chad/env/TextMate/bin/rst2html.py'
     prepend_path_if_exists PATH "/usr/local/share/npm/bin"
 else
     alias ls='ls -F --color=auto'

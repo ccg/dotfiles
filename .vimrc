@@ -81,6 +81,7 @@ autocmd BufNewFile,BufRead *.ts set ft=typescript sw=2
 " Normally, I use four-space indentation, but the Ruby standard
 " appears to be two spaces.
 autocmd FileType ruby set sw=2 sts=2
+autocmd FileType eruby set sw=2 sts=2
 
 " Enable omnicomplete
 autocmd FileType python set omnifunc=pythoncomplete#Complete

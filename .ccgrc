@@ -217,10 +217,10 @@ export CCG_PS1="${PS1_BASE}\$(parse_git_branch)\n\$ "
 
 PS1="$CCG_PS1"
 
-# Finally, rvm magic:
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 append_path NODE_PATH /usr/local/lib/node_modules
 
 # Learn me a Haskell
 append_path PATH ~/.cabal/bin
+
+# Finally, rvm magic:
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

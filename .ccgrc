@@ -142,7 +142,8 @@ if [ "$(uname -s)" == "Darwin" ]; then
     alias ls='ls -AFGq'
     append_path PYTHONPATH ~/Library/Python
     prepend_path PYTHONPATH .
-    append_path PATH "$HOME/Applications/android-sdk-mac_86/tools"
+    append_path PATH "$HOME/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
+    append_path PATH "$HOME/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools"
     prepend_path PATH "/usr/local/sbin"
     # Make sure /usr/local/bin is before /usr/bin so that Homebrew's postgres
     # commands take precendence:

@@ -170,7 +170,7 @@ fi
 ###################################################
 ### virtualenvwrapper
 ###################################################
-export WORKON_HOME=$HOME/env
+export WORKON_HOME=$HOME/.virtualenv
 if [ ! -d $WORKON_HOME ]
 then
     mkdir -p $WORKON_HOME

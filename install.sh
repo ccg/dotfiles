@@ -56,8 +56,8 @@ install_scripts() {
 #    link "$PWD/$i" "$HOME/bin/$i"
 #done
 
-echo "WARNING: Skipping ~/bin and ~/env for now. Update if switching to Linux."
+echo "WARNING: Skipping ~/bin and for now. Update if switching to Linux."
 #install_scripts "$HOME/bin" fixssh grabssh
-#install_scripts "$HOME/env" postactivate postmkvirtualenv
+install_scripts "$WORKON_HOME" postactivate postmkvirtualenv
 
 echo "NOTE: may need to mkdir ~/.vim/tmp/. Too lazy to test it now."

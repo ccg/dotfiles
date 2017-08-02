@@ -138,31 +138,6 @@ fi
 [ -f "$BASH_GIT_COMPLETION" ] && source "$BASH_GIT_COMPLETION"
 
 
-###################################################
-### git prompt hack
-###################################################
-# http://henrik.nyh.se/2008/12/git-dirty-prompt
-# http://www.simplisticcomplexity.com/2008/03/13/show-your-git-branch-name-in-your-prompt/
-#   username@Machine ~/dev/dir[master]$   # clean working directory
-#   username@Machine ~/dev/dir[master*]$  # dirty working directory
-
-function parse_git_dirty {
-    [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]] && echo "*"
-}
-
-
-function parse_git_branch {
-    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (Git branch: \1$(parse_git_dirty))/"
-}
-
-# For now, my full PS1 is too slow for certain projects that have checked in
-# multiple megabytes of static images into Git...
-PS1_BASE="\n\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[00m\]\$(active_virtualenv)"
-export FASTER_PS1="${PS1_BASE}\n\$ "
-export CCG_PS1="${PS1_BASE}\$(parse_git_branch)\n\$ "
-
-PS1="$CCG_PS1"
-
 append_path NODE_PATH /usr/local/lib/node_modules
 
 export NVM_DIR=$HOME/.nvm

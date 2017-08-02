@@ -14,4 +14,17 @@ USAGE
 
 ``./install.sh`` to create all the symlinks.
 
-After running ``install.sh``, you'll need to source it in .bashrc, .bash_profile, or .profile.
+After running ``install.sh``, you'll need to source it in .bashrc, .bash_profile, or .profile:
+
+    CCGRC="$HOME/.ccgrc"
+    [ -f "$CCGRC" ] && source "$CCGRC"
+
+Then, install LiquidPrompt:
+
+    cd ~/Code # or ~/src or whatever
+    git clone https://github.com/nojhan/liquidprompt.git
+
+In ``~/.bash_profile``:
+
+    LIQUID_PROMPT="$HOME/Code/liquidprompt"
+    source "$LIQUID_PROMPT/liquidprompt"

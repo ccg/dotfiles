@@ -7,26 +7,33 @@ I swiped some functions from Fink for dealing with the colon-delimited strings f
 
 The reason I'm using those functions is that I want to be able to add things to `.ccgrc` and source it in my current shell arbitrarily often without having those PATH variables grow every time. In other words, I can call `source ~/.ccgrc` as many times as I want, and it should only makes changes the first time.
 
-USAGE
+Usage
 -----
 
-Run `./configure-git.sh` to set the Git configs (name, email, shell colors, etc.).
+1. Run `./configure-git.sh` to set the Git configs (name, email, shell colors, etc.).
 
-Run `./install.sh` to create all the symlinks.
+2. Run `./install.sh` to create all the symlinks.
 
-Install LiquidPrompt:
+3. Install LiquidPrompt:
 
-```bash
-cd ~/Code # or ~/src or whatever
-git clone https://github.com/nojhan/liquidprompt.git
-```
+  ```bash
+  cd ~/Code # or ~/src or whatever
+  git clone https://github.com/nojhan/liquidprompt.git
+  ```
 
-Create or update `~/.bash_profile` (this part is not automated, in case the OS has already created one):
+4. Create or update `~/.bash_profile` (this part is not automated, in case the OS has already created one):
 
-```bash
-CCGRC="$HOME/.ccgrc"
-[ -f "$CCGRC" ] && source "$CCGRC"
+  ```bash
+  CCGRC="$HOME/.ccgrc"
+  [ -f "$CCGRC" ] && source "$CCGRC"
 
-LIQUID_PROMPT="$HOME/Code/liquidprompt"
-source "$LIQUID_PROMPT/liquidprompt"
-```
+  LIQUID_PROMPT="$HOME/Code/liquidprompt"
+  source "$LIQUID_PROMPT/liquidprompt"
+  ```
+
+5. The nvm developers do support having Homebrew manage nvm, so avoid that and
+install it the old-fashioned way:
+
+  https://github.com/creationix/nvm#installation
+
+  Note that this will update `~/.bash_profile` automatically.

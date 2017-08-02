@@ -167,13 +167,3 @@ append_path NODE_PATH /usr/local/lib/node_modules
 
 export NVM_DIR=$HOME/.nvm
 source $(brew --prefix nvm)/nvm.sh
-
-SENCHA_CMD_PATH="/Users/chad/bin/Sencha/Cmd/5.0.0.160"
-# TODO figure out if this is still needed with Cmd 4.x series:
-export SENCHA_CMD_PATH_3_0_0="${SENCHA_CMD_PATH}"
-prepend_path PATH "${SENCHA_CMD_PATH}"
-
-# Finally, rvm magic...
-# Here is the original comment that RVM added to my .bash_profile:
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

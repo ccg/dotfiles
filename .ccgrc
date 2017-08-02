@@ -43,17 +43,6 @@ prepend_path_if_exists()
     fi
 }
 
-# PyDev goodies
-export PYDEV_DIR="$HOME/src/pydev"
-
-pydev_update() {
-    if [ -d "$PYDEV_DIR" ]
-    then
-        pushd "$PYDEV_DIR"
-        source "bin/.bashrc"
-        popd
-    fi
-}
 
 ###################################################
 ### PATH-type list variables
@@ -70,8 +59,6 @@ for i in $HOME/opt/*/bin
 do
     prepend_path_if_exists PATH $i
 done
-
-append_path PYTHONPATH .
 
 ###################################################
 ### Simple variables
@@ -102,14 +89,6 @@ case $TERM in
         ;;
 esac
 
-# Python stuff
-export PIP_DOWNLOAD_CACHE="$HOME/.pip"
-# I probably should have named that repo something other than 'dotfiles' if
-# it's going to hold things like python scripts. Oh well.
-export PYTHONSTARTUP="$HOME/src/dotfiles/readline.py"
-# Note to self: as of Python 2.6, there is now support for local
-# site-packages in ~/.local/. See PEP-370.
-
 
 ###################################################
 ### Aliases
@@ -128,10 +107,6 @@ alias egrep='egrep --color=auto'
 alias rgrep='rgrep --color=auto'
 alias diff='colordiff'
 
-alias be='bundle exec'
-
-alias attach="$HOME/bin/grabssh ; screen -d -r"
-alias fixssh="source $HOME/bin/fixssh"
 
 ###################################################
 ### Platform- or system-specific modifications
@@ -140,11 +115,6 @@ alias fixssh="source $HOME/bin/fixssh"
 if [ "$(uname -s)" == "Darwin" ]; then
     # Mac OS X stuff:
     alias ls='ls -AFGq'
-    append_path PYTHONPATH ~/Library/Python
-    prepend_path PYTHONPATH .
-    append_path PATH "$HOME/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools"
-    append_path PATH "$HOME/Applications/adt-bundle-mac-x86_64-20131030/sdk/tools"
-    prepend_path PATH "/usr/local/sbin"
     # Make sure /usr/local/bin is before /usr/bin so that Homebrew's postgres
     # commands take precendence:
     #prepend_path PATH "/usr/local/bin"
@@ -167,15 +137,6 @@ fi
 
 [ -f "$BASH_GIT_COMPLETION" ] && source "$BASH_GIT_COMPLETION"
 
-###################################################
-### virtualenvwrapper
-###################################################
-export WORKON_HOME=$HOME/.virtualenv
-if [ ! -d $WORKON_HOME ]
-then
-    mkdir -p $WORKON_HOME
-fi
-[ -f ~/.virtualenvwrapper_bashrc ] && source ~/.virtualenvwrapper_bashrc
 
 ###################################################
 ### git prompt hack
@@ -194,22 +155,6 @@ function parse_git_branch {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (Git branch: \1$(parse_git_dirty))/"
 }
 
-function active_virtualenv {
-    if [ "$ACTIVE_VIRTUALENV" != "" ]
-    then
-        echo -n " (Virtualenv: $ACTIVE_VIRTUALENV)"
-    fi
-}
-
-function install_pil {
-    cdsitepackages || return 1
-    ln -s "/usr/lib/python2.5/site-packages/PIL" .
-    cd -
-}
-
-# Stolen from Gentoo:
-#PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] "
-
 # For now, my full PS1 is too slow for certain projects that have checked in
 # multiple megabytes of static images into Git...
 PS1_BASE="\n\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[00m\]\$(active_virtualenv)"
@@ -219,9 +164,6 @@ export CCG_PS1="${PS1_BASE}\$(parse_git_branch)\n\$ "
 PS1="$CCG_PS1"
 
 append_path NODE_PATH /usr/local/lib/node_modules
-
-# Learn me a Haskell
-append_path PATH ~/.cabal/bin
 
 export NVM_DIR=$HOME/.nvm
 source $(brew --prefix nvm)/nvm.sh

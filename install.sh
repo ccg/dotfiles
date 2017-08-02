@@ -39,25 +39,4 @@ do
     [ -d "$i" ] && link "$PWD/$i" "$HOME/$i"
 done
 
-install_scripts() {
-    targetdir="$1"
-    [ ! -d "$targetdir" ] && mkdir "$targetdir"
-    shift
-    for i in $@
-    do
-        link "$PWD/$i" "$targetdir/$i"
-    done
-}
-
-# helper scripts
-#for i in fixssh grabssh
-#do
-#    [ ! -d "$HOME/bin" ] && mkdir "$HOME/bin"
-#    link "$PWD/$i" "$HOME/bin/$i"
-#done
-
-echo "WARNING: Skipping ~/bin and for now. Update if switching to Linux."
-#install_scripts "$HOME/bin" fixssh grabssh
-install_scripts "$WORKON_HOME" postactivate postmkvirtualenv
-
-echo "NOTE: may need to mkdir ~/.vim/tmp/. Too lazy to test it now."
+mkdir -p "$HOME/.vim/tmp/"

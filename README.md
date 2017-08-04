@@ -37,3 +37,16 @@ install it the old-fashioned way:
   https://github.com/creationix/nvm#installation
 
   Note that this will update `~/.bash_profile` automatically.
+
+Other Setup
+-----------
+
+On a new Mac, I like to map Command-Q to something other than quitting the
+current application, because it's too easy to hit Command-Q by accident,
+especially when you're trying to hit Command-W.
+
+Open System Preferences -> Keyboard -> Shortcuts and map Command-Q to
+something else. I usually use App Shortcuts -> Show Help menu, but another
+good option is Accessibility -> Invert colors.
+
+https://www.quora.com/How-do-I-disable-Command-q-in-OSX

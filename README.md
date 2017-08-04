@@ -50,3 +50,6 @@ something else. I usually use App Shortcuts -> Show Help menu, but another
 good option is Accessibility -> Invert colors.
 
 https://www.quora.com/How-do-I-disable-Command-q-in-OSX
+
+Another good Mac tweak is to disable the annoying autocorrect in text fields.
+Open System Preferences -> Keyboard -> Text and then disable everything.

@@ -7,6 +7,15 @@ I swiped some functions from Fink for dealing with the colon-delimited strings f
 
 The reason I'm using those functions is that I want to be able to add things to `.ccgrc` and source it in my current shell arbitrarily often without having those PATH variables grow every time. In other words, I can call `source ~/.ccgrc` as many times as I want, and it should only makes changes the first time.
 
+One thing to note is that it will prepend any paths it finds that match `~/opt/*/bin`. The idea is that if you have these two directories:
+
+```
+~/opt/my-app-6.3/bin
+~/opt/my-app-7.0/bin
+```
+
+... then you probably want 7.0 to appear earlier in your `$PATH` than version 6.3. Because it processes them in ascii-betical order but _prepends_ them, you would end up with `~/opt/my-app-7.0/bin:~/opt/my-app-6.3/bin:...`
+
 Usage
 -----
 

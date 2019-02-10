@@ -39,4 +39,9 @@ do
     [ -d "$i" ] && link "$PWD/$i" "$HOME/$i"
 done
 
+# special cases
+SSH_DIR="$HOME/.ssh"
+mkdir -p "$SSH_DIR"
+link .ssh/config "${SSH_DIR}/config"
+
 mkdir -p "$HOME/.vim/tmp/"

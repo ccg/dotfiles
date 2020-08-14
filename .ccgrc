@@ -59,21 +59,6 @@ export VISUAL=vim
 
 export LC_COLLATE="POSIX"
 
-if [ "$TERM" == "xterm" ]
-then
-    export TERM="xterm-color"
-fi
-
-# Change the window title of X terminals
-case $TERM in
-    xterm*|rxvt|Eterm|eterm)
-        PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
-        ;;
-    screen)
-        PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"'
-        ;;
-esac
-
 
 ###################################################
 ### Aliases
@@ -106,9 +91,6 @@ if [ "$(uname -s)" == "Darwin" ]; then
     #PATH="/usr/local/bin:$PATH"
     # Fix Backspace/Delete confusion:
     stty erase ^?
-    # XTerm's $MANPATH gets messed up, and I can't find where it's happening.
-    # Screw it. Just reset the whole thing, cuz the default works.
-    unset MANPATH
     BASH_GIT_COMPLETION="/usr/local/etc/bash_completion.d/git-completion.bash"
     alias mysql_start='/usr/local/share/mysql/mysql.server start'
     alias pg_start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'

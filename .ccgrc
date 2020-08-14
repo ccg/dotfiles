@@ -4,35 +4,20 @@
 ### Functions
 ###################################################
 
-# append_path() and prepend_path() adapted from Fink's init.sh
+PATHMOD=$HOME/.pathmod.py
 
 # add to end of path
 append_path()
 {
-    if eval test -z "\$$1"
-    then
-        eval "export $1=$2"
-    fi
-
-    if ! eval test -z "\"\${$1##*:$2:*}\"" -o -z "\"\${$1%%*:$2}\"" -o -z "\"\${$1##$2:*}\"" -o -z "\"\${$1##$2}\""
-    then
-        eval "export $1=\$$1:$2"
-    fi
+    NEW_PATH=$(python ${PATHMOD} append $1 $2)
+    eval "export $1='${NEW_PATH}'"
 }
 
 # add to beginning of path
 prepend_path()
 {
-    if eval test -z "\$$1"
-    then
-      eval "export $1=$2"
-      return
-    fi
-
-    if ! eval test -z "\"\${$1##*:$2:*}\"" -o -z "\"\${$1%%*:$2}\"" -o -z "\"\${$1##$2:*}\"" -o -z "\"\${$1##$2}\""
-    then
-      eval "export $1=$2:\$$1"
-    fi
+    NEW_PATH=$(python ${PATHMOD} prepend $1 $2)
+    eval "export $1='${NEW_PATH}'"
 }
 
 prepend_path_if_exists()
@@ -95,7 +80,6 @@ esac
 ###################################################
 
 # My most common typo.
-# Dear Ubuntu, please stop telling me to "sudo apt-get install sl"
 alias sl=ls
 
 alias mv='mv -iv'
@@ -119,7 +103,7 @@ if [ "$(uname -s)" == "Darwin" ]; then
     # commands take precendence:
     #prepend_path PATH "/usr/local/bin"
     # need to force it:
-    PATH="/usr/local/bin:$PATH"
+    #PATH="/usr/local/bin:$PATH"
     # Fix Backspace/Delete confusion:
     stty erase ^?
     # XTerm's $MANPATH gets messed up, and I can't find where it's happening.
@@ -130,6 +114,16 @@ if [ "$(uname -s)" == "Darwin" ]; then
     alias pg_start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
     alias pg_stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
     prepend_path_if_exists PATH "/usr/local/share/npm/bin"
+
+    # https://stackoverflow.com/a/49528037/4240806
+    # Configuration for virtualenv
+    export WORKON_HOME=$HOME/.virtualenvs
+    export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+    export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+    #prepend_path_if_exists PATH "/Users/chadglendenin/Library/Python/3.8/bin"
+    source /usr/local/bin/virtualenvwrapper.sh
+
+    export BASH_SILENCE_DEPRECATION_WARNING=1
 else
     alias ls='ls -F --color=auto'
     BASH_GIT_COMPLETION="/etc/bash_completion.d/git"

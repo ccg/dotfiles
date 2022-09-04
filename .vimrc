@@ -1,6 +1,3 @@
-﻿" Pathogen must be activated before calling ``filetype plugin indent on``
-call pathogen#infect()
-
 " Do not force vi compatibility.
 set nocompatible
 
@@ -36,20 +33,6 @@ set title
 " Remap the 'Leader' key for things like opening NERDTree with ',n'
 let mapleader = ','
 
-" ==== NERDTree Config ====
-" Keyboard shortcut to open NERDTree
-map <Leader>n :NERDTreeToggle<CR>
-" Reduce UI clutter (use the 'u' key to move up a dir)
-let NERDTreeMinimalUI = 1
-" Use arrows instead of + and ~ characters for directories
-let NERDTreeDirArrows = 1
-
-" If we're running under GNU Screen, pretend that it's an xterm so that
-" the mouse will work correctly.
-if &term =~ "^screen"
-    set ttymouse=xterm2
-endif
-
 " Let Vim take over when running in a terminal so that it's possible to move
 " the cursor by clicking, resize split windows by dragging the divider, etc.
 set mouse=a
@@ -60,11 +43,6 @@ set list
 set listchars=tab:\│⋯,trail:·
 "\|┈
 "set listchars=tab:>-,trail:·  "▶ × ✖ • ● ▄ ■ ▐ ░ ▒ ▓ ▞ ┅ ━ ◀ ▶ ⋀ ⊥ ⎵ ⎶  ➜ ╳
-
-
-" require for pyflakes.vim:
-" is this conflicting with python.vim?
-"filetype plugin indent on
 
 " do i really want to do this?
 " automatically strip trailing whitespace when saving a file:
@@ -120,9 +98,6 @@ set showcmd
 " explicitly what filetype to use. For example, to highlight a .json file,
 " use :set filetype=javascript (or :set ft=javascript)
 syntax on
-
-" Abbreviation for inserting a Python debugger breakpoint
-iab pdbs import pdb; pdb.set_trace()
 
 " Keep all those pesky .swp files in one place.
 set directory=~/.vim/tmp,~/tmp,/var/tmp,/tmp

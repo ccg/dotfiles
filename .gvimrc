@@ -11,5 +11,4 @@ else
     set guifont="Bitstream Vera Sans Mono 10"
 endif
 
-colorscheme rdark
 set cursorline cursorcolumn

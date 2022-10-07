@@ -35,7 +35,7 @@ let mapleader = ','
 
 " Let Vim take over when running in a terminal so that it's possible to move
 " the cursor by clicking, resize split windows by dragging the divider, etc.
-set mouse=a
+"set mouse=a
 
 " Make it obvious where hard-tab characters (ASCII char #9) appear.
 " Also show trailing whitespace.

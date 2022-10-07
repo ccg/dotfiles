@@ -12,21 +12,23 @@ configuration based on raw zsh with a handful plugins. I tried the major zsh
 Usage
 -----
 
+1. Install Xcode.
+
 1. Install Homebrew.
 
-2. Install dependencies:
+1. Install dependencies:
 
-```sh
-brew install nvm                    # my .zshrc sources nvm.sh
-brew install pure                   # fancy shell prompt
-brew install zsh-autosuggestions    # fish-style suggestions
-brew install zsh-completions
-brew install zsh-syntax-highlighting
-```
+    ```sh
+    brew install nvm                    # my .zshrc sources nvm.sh
+    brew install pure                   # fancy shell prompt
+    brew install zsh-autosuggestions    # fish-style suggestions
+    brew install zsh-completions
+    brew install zsh-syntax-highlighting
+    ```
 
-3. Run `./configure-git.sh` to set the Git configs (name, email, shell colors, etc.).
+1. Run `./configure-git.sh` to set the Git configs (name, email, shell colors, etc.).
 
-4. Run `./install.sh` to create all the symlinks.
+1. Run `./install.sh` to create all the symlinks.
 
 Other Setup
 -----------

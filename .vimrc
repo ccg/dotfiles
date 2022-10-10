@@ -100,7 +100,7 @@ set showcmd
 syntax on
 
 " Keep all those pesky .swp files in one place.
-set directory=~/.vim/tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vimtmp,~/tmp,/var/tmp,/tmp
 
 " Only use one space between sentences when joining lines or
 " reformatting paragraphs.

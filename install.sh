@@ -1,7 +1,8 @@
 #!/bin/sh
 
 # First, make sure all the submodules are checked out
-git submodule update --init --recursive
+# TODO: Delete this if no longer needed.
+#git submodule update --init --recursive
 
 link() {
     src="$1"
@@ -23,25 +24,19 @@ link() {
     fi
 }
 
-# dot files (not directories)
-for i in .*
-do
-    if [ ! -d "$i" ]
-    then
-        link "$PWD/$i" "$HOME/$i"
-    fi
-done
-
-# dot directories
-# by inclusion, so things like '..' and '.git' don't get in there accidentally
-for i in .vim
-do
-    [ -d "$i" ] && link "$PWD/$i" "$HOME/$i"
-done
-
-# special cases
 SSH_DIR="$HOME/.ssh"
-mkdir -p "$SSH_DIR"
-link .ssh/config "${SSH_DIR}/config"
 
-mkdir -p "$HOME/.vim/tmp/"
+# required directories
+mkdir -p "$SSH_DIR"
+mkdir -p "$HOME/.nvm"
+mkdir -p "$HOME/.vimtmp"
+
+# dot files and directories
+# by inclusion, so things like '..' and '.git' don't get in there accidentally
+for i in .vim .vimrc .zshrc
+do
+    link "$PWD/$i" "$HOME/$i"
+done
+
+# files not at the top level
+link "${PWD}/.ssh/config" "${SSH_DIR}/config"

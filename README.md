@@ -12,13 +12,14 @@ configuration based on raw zsh with a handful plugins. I tried the major zsh
 Usage
 -----
 
-1. Install Xcode.
+1. Install Xcode. (Optional. Homebrew will trigger a command-line installation.)
 
 1. Install Homebrew.
 
 1. Install dependencies:
 
     ```sh
+    brew install colordiff              # so my `diff` aliases work
     brew install nvm                    # my .zshrc sources nvm.sh
     brew install pure                   # fancy shell prompt
     brew install zsh-autosuggestions    # fish-style suggestions
